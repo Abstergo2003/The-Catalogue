@@ -1,0 +1,17 @@
+README.md
+setup.py
+pamd_chemistry/AcidDissociation.py
+pamd_chemistry/BondEnergies.py
+pamd_chemistry/Compounds.py
+pamd_chemistry/LatentHeats.py
+pamd_chemistry/PeriodicTable.py
+pamd_chemistry/PhysicalConstants.py
+pamd_chemistry/ReductionPotentials.py
+pamd_chemistry/SolubilityProducts.py
+pamd_chemistry/VaporPressure.py
+pamd_chemistry/__init__.py
+pamd_chemistry/unit.py
+pamd_chemistry.egg-info/PKG-INFO
+pamd_chemistry.egg-info/SOURCES.txt
+pamd_chemistry.egg-info/dependency_links.txt
+pamd_chemistry.egg-info/top_level.txt

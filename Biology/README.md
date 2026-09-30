@@ -1,0 +1,56 @@
+<div align="center">
+  <h1>🧬 PyAct Catalogue: Biology</h1>
+  <p><b>The standard property database for life sciences and biochemistry.</b></p>
+</div>
+
+**pamd-biology** is a standalone, installable knowledge base designed to plug directly into the PyAct engine. It contains standardized biological, cellular, and biochemical properties wrapped perfectly in PyAct's `Unit` class. 
+
+Whether you are calculating enzyme kinetics, molecular weights, or cellular volumes, this package provides instant access to standard life science data without needing to look it up.
+
+## 🚀 Installation
+
+Install it directly from PyPI:
+```bash
+pip install pamd-biology
+```
+*(Note: Installing this package will automatically install `pyact-cli` and its core `Unit` library as a dependency.)*
+
+## 📖 What's Included?
+
+This package contains standard biological datasets tailored for biochemistry and cellular biology calculations.
+
+### 1. Macromolecules
+* **`AminoAcids`**: The 20 standard proteinogenic amino acids with their molecular weights (`[Da]`), isoelectric points (`pI`), and Kyte-Doolittle hydropathy indices.
+* **`NucleicBases`**: Molecular weights for the standard DNA and RNA free bases (Adenine, Thymine, Cytosine, Guanine, Uracil).
+* **`MacromoleculeDensities`**: Average buoyant densities (`[g/cm3]`) and partial specific volumes for proteins, DNA, RNA, lipids, and carbohydrates (essential for ultracentrifugation).
+
+### 2. Cellular Biology & Organisms
+* **`TypicalCells`**: Standard cell volumes (`[um3]`), typical mass (`[pg]`), and diameters for *E. coli*, Yeast, Red Blood Cells, and HeLa cells.
+* **`OrganismGenomes`**: Genome sizes (`[bp]`), chromosome counts, and estimated gene counts for model organisms (E. coli, Yeast, C. elegans, Drosophila, and Humans).
+
+### 3. Biochemistry & Kinetics
+* **`EnzymeKinetics`**: Typical Michaelis-Menten constants ($K_m$) and turnover numbers ($k_{cat}$) for classic reference enzymes (like Catalase, Hexokinase, Acetylcholinesterase).
+* **`Bioenergetics`**: Standard free energy of hydrolysis ($\Delta G^\circ$) for massive energy carriers like ATP, ADP, and Phosphoenolpyruvate.
+
+### 4. Clinical Baselines
+* **`HumanBloodParameters`**: Clinical adult human blood baselines including pH ranges, osmolarity, fasting glucose, and hemoglobin levels.
+
+## 🛠️ Usage Example
+
+Import any biological database directly into your PyAct `.pamd` context and perform instant math. Because every value is a `Unit` object, calculations are completely seamless.
+
+```python
+from pamd_biology.AminoAcids import AminoAcids
+from pamd_biology.EnzymeKinetics import TypicalEnzymes
+from pamd_biology.unit import Unit
+
+def context():
+    # Fetch standard values
+    valine_mass = AminoAcids().Valine["MW_Da"]
+    kcat_catalase = TypicalEnzymes().Catalase["kcat_1_s"]
+    
+    return {
+        "valine_weight": valine_mass,
+        "catalase_turnover": kcat_catalase
+    }
+```

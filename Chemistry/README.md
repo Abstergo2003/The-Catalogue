@@ -1,0 +1,57 @@
+<div align="center">
+  <h1>⚗️ PyAct Catalogue: Chemistry</h1>
+  <p><b>The standard property database for chemical engineering and stoichiometry.</b></p>
+</div>
+
+**pamd-chemistry** is a standalone, installable knowledge base designed to plug directly into the PyAct engine. It contains an extensive array of standard chemical properties, physical constants, and thermodynamic data, all wrapped perfectly in PyAct's `Unit` class. 
+
+Say goodbye to looking up standard enthalpies, vapor pressures, or atomic masses — just import and calculate.
+
+## 🚀 Installation
+
+Install it directly from PyPI:
+```bash
+pip install pamd-chemistry
+```
+*(Note: Installing this package will automatically install `pyact-cli` and its core `Unit` library as a dependency.)*
+
+## 📖 What's Included?
+
+This package contains massive, pre-calculated datasets tailored for chemistry and thermodynamics.
+
+### 1. The Periodic Table
+* **`PeriodicTableJSON`**: Complete, queryable properties for every element on the periodic table. Includes atomic mass, density, melting/boiling points, molar heat, electronegativity, electron affinity, and electron configurations.
+
+### 2. Physical & Chemical Constants
+* **`PhysicalConstants`**: Universal constants necessary for chemistry (Avogadro's Number $N_A$, Ideal Gas Constant $R$, Faraday Constant $F$, Boltzmann Constant $k_B$, Planck Constant $h$, and more).
+
+### 3. Thermodynamics & Compounds
+* **`Compounds`**: A library of frequently used substances (Water, $CO_2$, Methane, Ammonia, Sulfuric Acid) loaded with their molar mass, standard enthalpy of formation ($\Delta H_f^\circ$), standard entropy ($S^\circ$), and specific heat capacity ($C_p$).
+* **`LatentHeats`**: Enthalpies of fusion ($\Delta H_{fus}$) and vaporization ($\Delta H_{vap}$) for phase change calculations.
+* **`BondEnergies`**: Standard average bond dissociation energies (e.g., $C-H$, $C=O$, $O-H$) for estimating reaction enthalpies.
+
+### 4. Equilibria & Electrochemistry
+* **`VaporPressureAntoine`**: The Antoine Equation constants ($A$, $B$, $C$) for calculating the vapor pressure of Water, Ethanol, Methanol, Acetone, and Benzene at any given temperature.
+* **`ReductionPotentials`**: The electrochemical series! Standard reduction potentials ($E^\circ$) in Volts for galvanic half-reactions (e.g., $Cu^{2+} \rightarrow Cu$).
+* **`AcidDissociation`**: Acid dissociation constants ($pK_a$) for computing pH with weak acids (Acetic, Carbonic, Phosphoric, etc.).
+* **`SolubilityProducts`**: $K_{sp}$ values for slightly soluble salts like $AgCl$ and $CaCO_3$.
+
+## 🛠️ Usage Example
+
+Import any chemistry database directly into your PyAct `.pamd` context and perform instant math. Because every value is a `Unit` object, calculations are completely seamless.
+
+```python
+from pamd_chemistry.PeriodicTableJSON import PeriodicTableJSON
+from pamd_chemistry.VaporPressure import VaporPressureAntoine
+from pamd_chemistry.unit import Unit
+
+def context():
+    # Fetch standard values
+    ti_density = PeriodicTableJSON().elements.Titanium["density"]
+    water_antoine_A = VaporPressureAntoine().Water["A"]
+    
+    return {
+        "titanium_density": ti_density,
+        "water_A_constant": water_antoine_A
+    }
+```
