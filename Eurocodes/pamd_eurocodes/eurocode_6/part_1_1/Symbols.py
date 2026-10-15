@@ -1,0 +1,60 @@
+try:
+    from symbol import Symbol
+except ImportError:
+    from pamd_eurocodes.symbol import Symbol
+
+# Section 1.6 Symbols used in EN 1996-1-1 (General rules for reinforced and unreinforced masonry)
+
+# Latin upper case letters
+A = Symbol(r"A", "Gross cross-sectional area of a wall")
+A_s = Symbol(r"A_s", "Cross-sectional area of reinforcing steel")
+E = Symbol(r"E", "Short-term modulus of elasticity of masonry (E = K_E * f_k)")
+E_s = Symbol(r"E_s", "Modulus of elasticity of reinforcing steel (typically 200 kN/mm2)")
+G = Symbol(r"G", "Shear modulus of masonry (G = 0.4 * E)")
+I = Symbol(r"I", "Second moment of area of a wall")
+K = Symbol(r"K", "Constant for characteristic compressive strength equation (f_k = K * f_b^alpha * f_m^beta)")
+K_E = Symbol(r"K_E", "Factor relating modulus of elasticity to characteristic compressive strength (typically 1000)")
+M_Ed = Symbol(r"M_{Ed}", "Design value of bending moment")
+N_Ed = Symbol(r"N_{Ed}", "Design value of vertical load")
+N_Rd = Symbol(r"N_{Rd}", "Design value of vertical load resistance (N_Rd = Phi * t * f_d)")
+V_Ed = Symbol(r"V_{Ed}", "Design value of shear load")
+V_Rd = Symbol(r"V_{Rd}", "Design value of shear resistance")
+W = Symbol(r"W", "Section modulus")
+
+# Latin lower case letters
+a = Symbol(r"a", "Distance or dimension")
+b = Symbol(r"b", "Width of wall or flange")
+c = Symbol(r"c", "Nominal cover to reinforcing steel")
+d = Symbol(r"d", "Effective depth of reinforced masonry cross-section")
+e = Symbol(r"e", "Eccentricity of loading")
+e_a = Symbol(r"e_a", "Accidental eccentricity (h_ef / 450)")
+e_i = Symbol(r"e_i", "Resultant eccentricity at top or bottom of a wall")
+e_mk = Symbol(r"e_{mk}", "Eccentricity at mid-height of a wall")
+f_b = Symbol(r"f_b", "Normalized mean compressive strength of masonry unit")
+f_d = Symbol(r"f_d", "Design compressive strength of masonry (f_d = f_k / gamma_M)")
+f_k = Symbol(r"f_k", "Characteristic compressive strength of masonry")
+f_m = Symbol(r"f_m", "Mean compressive strength of mortar")
+f_vd = Symbol(r"f_{vd}", "Design shear strength of masonry")
+f_vk = Symbol(r"f_{vk}", "Characteristic shear strength of masonry")
+f_vk0 = Symbol(r"f_{vk0}", "Characteristic initial shear strength under zero compressive stress")
+f_xk1 = Symbol(r"f_{xk1}", "Characteristic flexural strength with plane of failure parallel to bed joints")
+f_xk2 = Symbol(r"f_{xk2}", "Characteristic flexural strength with plane of failure perpendicular to bed joints")
+f_yd = Symbol(r"f_{yd}", "Design yield strength of reinforcing steel")
+f_yk = Symbol(r"f_{yk}", "Characteristic yield strength of reinforcing steel")
+h = Symbol(r"h", "Clear storey height of a wall")
+h_ef = Symbol(r"h_{ef}", "Effective height of a wall")
+l = Symbol(r"l", "Length of a wall")
+t = Symbol(r"t", "Thickness of a wall leaf")
+t_ef = Symbol(r"t_{ef}", "Effective thickness of a wall")
+
+# Greek letters
+alpha = Symbol(r"\alpha", "Exponent for normalized compressive strength of masonry unit (typically 0.70)")
+beta = Symbol(r"\beta", "Exponent for compressive strength of mortar (typically 0.30)")
+gamma_M = Symbol(r"\gamma_M", "Partial factor for masonry material properties")
+gamma_s = Symbol(r"\gamma_s", "Partial factor for reinforcing steel (gamma_s = 1.15)")
+Phi = Symbol(r"\Phi", "Capacity reduction factor allowing for effects of slenderness and eccentricity")
+Phi_i = Symbol(r"\Phi_i", "Capacity reduction factor at top or bottom of wall")
+Phi_m = Symbol(r"\Phi_m", "Capacity reduction factor at mid-height of wall")
+rho_t = Symbol(r"\rho_t", "Stiffness coefficient for walls stiffened by piers")
+sigma_d = Symbol(r"\sigma_d", "Design compressive stress acting on the cross-section")
+tau_d = Symbol(r"\tau_d", "Design shear stress acting on the cross-section")
